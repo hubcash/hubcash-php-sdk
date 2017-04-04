@@ -1,0 +1,23 @@
+{
+  "name": "hubcash/php-sdk",
+  "type": "library",
+  "description": "Library to Hubcash API",
+  "keywords": ["hubcash","api"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hubcash",
+      "email": "tecnologia@hubcash.com",
+      "homepage": "https://www.hubcash.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "guzzlehttp/guzzle": "6.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hubcash\\": "src/Hubcash"
+    }
+  }
+}
