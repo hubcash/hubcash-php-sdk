@@ -1,5 +1,5 @@
 {
-  "name": "hubcash/php-sdk",
+  "name": "hubcash/hubcash-php-sdk",
   "type": "library",
   "description": "Library to Hubcash API",
   "keywords": ["hubcash","api"],
