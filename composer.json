@@ -1,7 +1,7 @@
 {
   "name": "hubcash/hubcash-php-sdk",
   "type": "library",
-  "description": "Library to Hubcash API",
+  "description": "Hubcash's SDK for PHP",
   "keywords": ["hubcash","api"],
   "license": "MIT",
   "authors": [
