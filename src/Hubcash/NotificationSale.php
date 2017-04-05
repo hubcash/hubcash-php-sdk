@@ -8,6 +8,7 @@ namespace Hubcash;
  */
 class NotificationSale
 {
+
     /**
      * @var $SaleId string
      */

@@ -8,6 +8,10 @@ namespace Hubcash;
  */
 class Currency extends Hubcash
 {
+
+    // Currency manager URL
+    const CURRENCIES_URL = self::ENDPOINT . '/currencies';
+
     /**
      * @var $CurrencyId string
      */
@@ -41,23 +45,12 @@ class Currency extends Hubcash
     ];
 
     /**
-     * Currency constructor.
-     * @param $code
-     * @param $token
-     */
-    public function __construct($code, $token)
-    {
-        parent::__construct($code, $token);
-        $this->_url .= '/currencies';
-    }
-
-    /**
      * Retrieve currencies list
      * @return array
      */
     public function getCurrencies()
     {
-        $return = $this->sendRequest(self::REQUEST_GET, $this->_url);
+        $return = $this->sendRequest(self::REQUEST_GET, self::CURRENCIES_URL);
         $currenciesArray = !empty($return['Currencies']) ? $return['Currencies'] : array();
 
         /** @var $Currencies []Currency */

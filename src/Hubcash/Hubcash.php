@@ -10,17 +10,15 @@ use GuzzleHttp\Client;
  */
 class Hubcash
 {
+
     // For http request methods
     const REQUEST_GET = 'GET';
     const REQUEST_POST = 'POST';
     const REQUEST_PUT = 'PUT';
     const REQUEST_DELETE = 'DELETE';
 
-    /**
-     * API endpoint
-     * @var $_url string
-     */
-    protected $_url = 'https://api.hubcash.com/v1';
+    // The API endpoint, for both environments
+    const ENDPOINT = 'https://api.hubcash.com/v1';
 
     /**
      * The X-Hubcash-Code header
@@ -45,14 +43,16 @@ class Hubcash
     public $_hiddenSet;
 
     /**
-     * Hubcash constructor.
+     * Hubcash constructor, instantiate a new store
      * @param $code
      * @param $token
+     * @return Hubcash
      */
-    public function __construct($code, $token)
+    public function NewStore($code, $token)
     {
         $this->_code = $code;
         $this->_token = $token;
+        return $this;
     }
 
     /**
@@ -140,6 +140,41 @@ class Hubcash
         }
 
         return $data;
+    }
+
+    /**
+     * @return Brand
+     */
+    public function getBrandManager() {
+        return new Brand();
+    }
+
+    /**
+     * @return Card
+     */
+    public function getCardManager() {
+        return new Card();
+    }
+
+    /**
+     * @return Brand
+     */
+    public function getCurrencyManager() {
+        return new Brand();
+    }
+
+    /**
+     * @return Sale
+     */
+    public function getSaleManager() {
+        return new Sale();
+    }
+
+    /**
+     * @return WalletCard
+     */
+    public function getWalletCardManager() {
+        return new WalletCard();
     }
 
 }

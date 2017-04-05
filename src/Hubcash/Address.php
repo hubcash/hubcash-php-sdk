@@ -8,6 +8,7 @@ namespace Hubcash;
  */
 class Address extends Hubcash
 {
+
     /**
      * @var $AddressId string
      */

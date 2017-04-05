@@ -8,6 +8,10 @@ namespace Hubcash;
  */
 class Sale extends Hubcash
 {
+
+    // Sale manager URL
+    const SALES_URL = self::ENDPOINT . '/sales';
+
     // For Sale status
     const STATUS_PROCESSED = 1;
     const STATUS_ANALYZING = 2;
@@ -153,24 +157,18 @@ class Sale extends Hubcash
         'Status',
     ];
 
-
     /**
      * Sale constructor.
-     * @param $code
-     * @param $token
      */
-    public function __construct($code, $token)
+    public function __construct()
     {
-        parent::__construct($code, $token);
-        $this->_url .= '/sales';
-
         // Add relational objects into the Sale
         $this->Items = array();
         $this->Billet = new Billet();
-        $this->Card = new Card($this->_code, $this->_token);
-        $this->Consumer = new Consumer($this->_code, $this->_token);
-        $this->BillingAddress = new Address($this->_code, $this->_token);
-        $this->ShippingAddress = new Address($this->_code, $this->_token);
+        $this->Card = new Card();
+        $this->Consumer = new Consumer();
+        $this->BillingAddress = new Address();
+        $this->ShippingAddress = new Address();
     }
 
     /**
@@ -178,7 +176,7 @@ class Sale extends Hubcash
      */
     public function create()
     {
-        $return = $this->sendRequest(self::REQUEST_POST, $this->_url, $this->getArrayToSend());
+        $return = $this->sendRequest(self::REQUEST_POST, self::SALES_URL, $this->getArrayToSend());
         $this->ArrayToObject($return['Sale']);
     }
 
@@ -195,7 +193,7 @@ class Sale extends Hubcash
     public function getSales($page = null, $ref = null, $currency = null, $method = null, $capture = null, $status = null)
     {
         // Build the query from the filters
-        $url = $this->_url;
+        $url = self::SALES_URL;
         $params = http_build_query(array(
             'pg' => $page,
             'Ref' => $ref,
@@ -229,7 +227,7 @@ class Sale extends Hubcash
      */
     public function getSale($id)
     {
-        $return = $this->sendRequest(self::REQUEST_GET, $this->_url . "/{$id}");
+        $return = $this->sendRequest(self::REQUEST_GET, self::SALES_URL . "/{$id}");
         $this->ArrayToObject($return['Sale']);
     }
 
@@ -241,7 +239,7 @@ class Sale extends Hubcash
      */
     public function capture($id = null)
     {
-        $url = $this->_url . '/capture';
+        $url = self::SALES_URL . '/capture';
         // For validate if the object SaleId or var is valid
         if (!empty($this->SaleId)) {
             $url .= "/{$this->SaleId}";
@@ -265,7 +263,7 @@ class Sale extends Hubcash
      */
     public function cancel($id = null)
     {
-        $url = $this->_url . '/cancel';
+        $url = self::SALES_URL . '/cancel';
         // For validate if the object SaleId or var is valid
         if (!empty($this->SaleId)) {
             $url .= "/{$this->SaleId}";

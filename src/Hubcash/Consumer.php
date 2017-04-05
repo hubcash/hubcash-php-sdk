@@ -8,6 +8,7 @@ namespace Hubcash;
  */
 class Consumer extends Hubcash
 {
+
     /**
      * @var $ConsumerId string
      */

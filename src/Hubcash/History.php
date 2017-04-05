@@ -8,6 +8,7 @@ namespace Hubcash;
  */
 class History
 {
+
     /**
      * @var $HistoryId string
      */

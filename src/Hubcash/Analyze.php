@@ -8,6 +8,7 @@ namespace Hubcash;
  */
 class Analyze
 {
+
     /**
      * @var $AnalyzeId string
      */

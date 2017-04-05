@@ -8,6 +8,10 @@ namespace Hubcash;
  */
 class WalletCard extends Hubcash
 {
+
+    // WalletCard manager URL
+    const WALLET_CARDS_URL = self::ENDPOINT . '/wallet/cards';
+
     /**
      * @var $WalletCardId string
      */
@@ -72,22 +76,11 @@ class WalletCard extends Hubcash
     ];
 
     /**
-     * WalletCard constructor
-     * @param $code
-     * @param $token
-     */
-    public function __construct($code, $token)
-    {
-        parent::__construct($code, $token);
-        $this->_url .= '/wallet/cards';
-    }
-
-    /**
      * Creates a new card
      */
     public function create()
     {
-        $return = $this->sendRequest(self::REQUEST_POST, $this->_url, $this->getArrayToSend());
+        $return = $this->sendRequest(self::REQUEST_POST, self::WALLET_CARDS_URL, $this->getArrayToSend());
         $this->ArrayToObject($return['Card']);
     }
 
@@ -100,7 +93,7 @@ class WalletCard extends Hubcash
      */
     public function getCards($document, $page = null)
     {
-        $url = $this->_url;
+        $url = self::WALLET_CARDS_URL;
         $url .= !empty($page) ? "/document/{$document}?pg={$page}" : "/document/{$document}";
 
         $return = $this->sendRequest(self::REQUEST_GET, $url);
@@ -126,7 +119,7 @@ class WalletCard extends Hubcash
      */
     public function getCard($id)
     {
-        $return = $this->sendRequest(self::REQUEST_GET, $this->_url . "/{$id}");
+        $return = $this->sendRequest(self::REQUEST_GET, self::WALLET_CARDS_URL . "/{$id}");
         $this->ArrayToObject($return['Card']);
     }
 
@@ -139,14 +132,14 @@ class WalletCard extends Hubcash
     {
         // For validate if the object WalletCardId or var is valid
         if (!empty($this->WalletCardIdCardId)) {
-            $url = $this->_url . "/{$this->WalletCardIdCardId}";
+            $url = self::WALLET_CARDS_URL . "/{$this->WalletCardIdCardId}";
         } else {
             // When the WalletCardId in the object is empty
             // check if the id var received with the function is valid
             if (empty($id)) {
                 throw new \Exception('WalletCardId is required');
             }
-            $url = $this->_url . "/{$id}";
+            $url = self::WALLET_CARDS_URL . "/{$id}";
         }
 
         $return = $this->sendRequest(self::REQUEST_PUT, $url, $this->getArrayToSend());
@@ -164,14 +157,14 @@ class WalletCard extends Hubcash
     {
         // For validate if the object WalletCardId or var is valid
         if (!empty($this->WalletCardId)) {
-            $url = $this->_url . "/{$this->WalletCardId}";
+            $url = self::WALLET_CARDS_URL . "/{$this->WalletCardId}";
         } else {
             // When the WalletCardId in the object is empty
             // check if the id var received with the function is valid
             if (empty($id)) {
                 throw new \Exception('WalletCardId is required');
             }
-            $url = $this->_url . "/{$id}";
+            $url = self::WALLET_CARDS_URL . "/{$id}";
         }
 
         $this->sendRequest(self::REQUEST_DELETE, $url);

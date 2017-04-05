@@ -8,6 +8,7 @@ namespace Hubcash;
  */
 class Rollback
 {
+
     /**
      * @var $RollbackId string
      */

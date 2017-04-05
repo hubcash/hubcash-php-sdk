@@ -8,6 +8,10 @@ namespace Hubcash;
  */
 class Notification extends Hubcash
 {
+
+    // Notification manager URL
+    const NOTIFICATIONS_URL = self::ENDPOINT . '/notifications';
+
     /**
      * @var $NotificationId string
      */
@@ -42,16 +46,11 @@ class Notification extends Hubcash
 
     /**
      * Notification constructor.
-     * @param $code
-     * @param $token
      */
-    public function __construct($code, $token)
+    public function __construct()
     {
-        parent::__construct($code, $token);
         $this->Sale = new NotificationSale();
-        $this->_url .= '/notifications';
     }
-
 
     /**
      * Retrieve notifications list, with pagination assets
@@ -60,7 +59,7 @@ class Notification extends Hubcash
      */
     public function getNotifications($page = null)
     {
-        $url = $this->_url;
+        $url = self::NOTIFICATIONS_URL;
         $url .= !empty($page) ? "?pg={$page}" : "";
 
         $return = $this->sendRequest(self::REQUEST_GET, $url);
@@ -86,7 +85,7 @@ class Notification extends Hubcash
      */
     public function getNotification($id)
     {
-        $return = $this->sendRequest(self::REQUEST_GET, $this->_url . "/{$id}");
+        $return = $this->sendRequest(self::REQUEST_GET, self::NOTIFICATIONS_URL . "/{$id}");
         $this->ArrayToObject($return['Notification']);
     }
 

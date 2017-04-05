@@ -8,6 +8,10 @@ namespace Hubcash;
  */
 class Brand extends Hubcash
 {
+
+    // Brand manager URL
+    const BRANDS_URL = self::ENDPOINT . '/brands';
+
     /**
      * @var $BrandId string
      */
@@ -41,23 +45,12 @@ class Brand extends Hubcash
     ];
 
     /**
-     * Brand constructor.
-     * @param $code
-     * @param $token
-     */
-    public function __construct($code, $token)
-    {
-        parent::__construct($code, $token);
-        $this->_url .= '/brands';
-    }
-
-    /**
      * Retrieve brand list
      * @return array
      */
     public function getBrands()
     {
-        $return = $this->sendRequest(self::REQUEST_GET, $this->_url);
+        $return = $this->sendRequest(self::REQUEST_GET, self::BRANDS_URL);
         $brandsArray = !empty($return['Brands']) ? $return['Brands'] : array();
 
         /** @var $Brands []Brand */
@@ -79,7 +72,7 @@ class Brand extends Hubcash
      */
     public function getBrandByNumber($number)
     {
-        $return = $this->sendRequest(self::REQUEST_GET, $this->_url . "/{$number}");
+        $return = $this->sendRequest(self::REQUEST_GET, self::BRANDS_URL . "/{$number}");
         $this->ArrayToObject($return['Brand']);
     }
 

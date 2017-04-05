@@ -8,6 +8,7 @@ namespace Hubcash;
  */
 class Item
 {
+
     /**
      * @var $ItemId string
      */
