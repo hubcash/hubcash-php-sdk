@@ -157,10 +157,10 @@ class Hubcash
     }
 
     /**
-     * @return Brand
+     * @return Currency
      */
     public function getCurrencyManager() {
-        return new Brand();
+        return new Currency();
     }
 
     /**
