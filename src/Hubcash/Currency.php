@@ -40,7 +40,7 @@ class Currency extends Hubcash
     /**
      * @var array
      */
-    protected $_hiddenSet = [
+    public $_hiddenSet = [
         'CurrencyId'
     ];
 

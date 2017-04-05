@@ -40,7 +40,7 @@ class Brand extends Hubcash
     /**
      * @var array
      */
-    protected $_hiddenSet = [
+    public $_hiddenSet = [
         'BrandId'
     ];
 

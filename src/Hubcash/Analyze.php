@@ -27,7 +27,7 @@ class Analyze
     /**
      * @var array
      */
-    protected $_hiddenSet = [];
+    public $_hiddenSet = [];
 
     /**
      * @param array $data

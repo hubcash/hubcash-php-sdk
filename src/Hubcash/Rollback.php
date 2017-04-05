@@ -32,7 +32,7 @@ class Rollback
     /**
      * @var array
      */
-    protected $_hiddenSet = [];
+    public $_hiddenSet = [];
 
     /**
      * @param array $data
