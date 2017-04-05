@@ -43,12 +43,12 @@ class Hubcash
     public $_hiddenSet;
 
     /**
-     * Hubcash constructor, instantiate a new store
+     * Authenticate with a store
      * @param $code
      * @param $token
      * @return Hubcash
      */
-    public function NewStore($code, $token)
+    public function authenticate($code, $token)
     {
         $this->_code = $code;
         $this->_token = $token;
