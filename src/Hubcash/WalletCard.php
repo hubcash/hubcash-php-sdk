@@ -81,7 +81,7 @@ class WalletCard extends Hubcash
     public function create()
     {
         $return = $this->sendRequest(self::REQUEST_POST, self::WALLET_CARDS_URL, $this->getArrayToSend());
-        $this->ArrayToObject($return['Card']);
+        return $this->ArrayToObject($return['Card']);
     }
 
 
@@ -120,7 +120,7 @@ class WalletCard extends Hubcash
     public function getCard($id)
     {
         $return = $this->sendRequest(self::REQUEST_GET, self::WALLET_CARDS_URL . "/{$id}");
-        $this->ArrayToObject($return['Card']);
+        return $this->ArrayToObject($return['Card']);
     }
 
     /**
@@ -143,7 +143,7 @@ class WalletCard extends Hubcash
         }
 
         $return = $this->sendRequest(self::REQUEST_PUT, $url, $this->getArrayToSend());
-        $this->ArrayToObject($return['Card']);
+        return $this->ArrayToObject($return['Card']);
     }
 
 

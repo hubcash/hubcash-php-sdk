@@ -73,7 +73,7 @@ class Brand extends Hubcash
     public function getBrandByNumber($number)
     {
         $return = $this->sendRequest(self::REQUEST_GET, self::BRANDS_URL . "/{$number}");
-        $this->ArrayToObject($return['Brand']);
+        return $this->ArrayToObject($return['Brand']);
     }
 
     /**

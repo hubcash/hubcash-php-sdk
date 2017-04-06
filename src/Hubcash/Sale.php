@@ -177,7 +177,7 @@ class Sale extends Hubcash
     public function create()
     {
         $return = $this->sendRequest(self::REQUEST_POST, self::SALES_URL, $this->getArrayToSend());
-        $this->ArrayToObject($return['Sale']);
+        return $this->ArrayToObject($return['Sale']);
     }
 
     /**
@@ -228,7 +228,7 @@ class Sale extends Hubcash
     public function getSale($id)
     {
         $return = $this->sendRequest(self::REQUEST_GET, self::SALES_URL . "/{$id}");
-        $this->ArrayToObject($return['Sale']);
+        return $this->ArrayToObject($return['Sale']);
     }
 
 
@@ -253,7 +253,7 @@ class Sale extends Hubcash
         }
 
         $return = $this->sendRequest(self::REQUEST_PUT, $url);
-        $this->ArrayToObject($return['Sale']);
+        return $this->ArrayToObject($return['Sale']);
     }
 
 
@@ -277,7 +277,7 @@ class Sale extends Hubcash
         }
 
         $return = $this->sendRequest(self::REQUEST_PUT, $url);
-        $this->ArrayToObject($return['Sale']);
+        return $this->ArrayToObject($return['Sale']);
     }
 
     /**

@@ -86,7 +86,7 @@ class Notification extends Hubcash
     public function getNotification($id)
     {
         $return = $this->sendRequest(self::REQUEST_GET, self::NOTIFICATIONS_URL . "/{$id}");
-        $this->ArrayToObject($return['Notification']);
+        return $this->ArrayToObject($return['Notification']);
     }
 
 
