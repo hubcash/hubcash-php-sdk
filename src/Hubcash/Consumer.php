@@ -68,6 +68,7 @@ class Consumer extends Hubcash
 
     /**
      * @param array $data
+     * @return Consumer
      */
     public function ArrayToObject(Array $data)
     {
@@ -81,5 +82,6 @@ class Consumer extends Hubcash
         $this->HomePhone = !empty($data['HomePhone']) ? $data['HomePhone'] : null;
         $this->MobilePhone = !empty($data['MobilePhone']) ? $data['MobilePhone'] : null;
         $this->WorkPhone = !empty($data['WorkPhone']) ? $data['WorkPhone'] : null;
+        return $this;
     }
 }

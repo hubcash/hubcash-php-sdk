@@ -55,7 +55,7 @@ class Notification extends Hubcash
     /**
      * Retrieve notifications list, with pagination assets
      * @param null $page
-     * @return array
+     * @return Notification[]
      */
     public function getNotifications($page = null)
     {
@@ -82,6 +82,7 @@ class Notification extends Hubcash
     /**
      * Retrieve a single notification by identifier
      * @param $id
+     * @return Notification
      */
     public function getNotification($id)
     {
@@ -92,6 +93,7 @@ class Notification extends Hubcash
 
     /**
      * @param array $data
+     * @return Notification
      */
     public function ArrayToObject(Array $data)
     {
@@ -110,6 +112,8 @@ class Notification extends Hubcash
         } else {
             unset($this->Sale);
         }
+
+        return $this;
     }
 
 }

@@ -31,11 +31,13 @@ class Analyze
 
     /**
      * @param array $data
+     * @return Analyze
      */
     public function ArrayToObject(Array $data)
     {
         $this->AnalyzeId = !empty($data['AnalyzeId']) ? $data['AnalyzeId'] : null;
         $this->Level = !empty($data['Level']) ? $data['Level'] : null;
         $this->Description = !empty($data['Description']) ? $data['Description'] : null;
+        return $this;
     }
 }

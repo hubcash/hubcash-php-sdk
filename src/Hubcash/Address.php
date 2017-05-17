@@ -63,6 +63,7 @@ class Address extends Hubcash
 
     /**
      * @param array $data
+     * @return Address
      */
     public function ArrayToObject(Array $data)
     {
@@ -75,5 +76,6 @@ class Address extends Hubcash
         $this->State = !empty($data['State']) ? $data['State'] : null;
         $this->Street = !empty($data['Street']) ? $data['Street'] : null;
         $this->ZipCode = !empty($data['ZipCode']) ? $data['ZipCode'] : null;
+        return $this;
     }
 }

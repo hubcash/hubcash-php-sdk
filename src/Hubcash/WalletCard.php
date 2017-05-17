@@ -89,7 +89,7 @@ class WalletCard extends Hubcash
      * Retrieve WalletCard list using a document
      * @param $document
      * @param null $page
-     * @return array
+     * @return WalletCard[]
      */
     public function getCards($document, $page = null)
     {
@@ -116,6 +116,7 @@ class WalletCard extends Hubcash
     /**
      * Get details of a WalletCard by identifier
      * @param $id
+     * @return WalletCard
      */
     public function getCard($id)
     {
@@ -126,6 +127,7 @@ class WalletCard extends Hubcash
     /**
      * Update a WalletCard by identifier
      * @param null $id
+     * @return WalletCard
      * @throws \Exception
      */
     public function update($id = null)
@@ -174,6 +176,7 @@ class WalletCard extends Hubcash
 
     /**
      * @param array $data
+     * @return WalletCard
      */
     public function ArrayToObject(Array $data)
     {
@@ -186,6 +189,7 @@ class WalletCard extends Hubcash
         $this->Number = !empty($data['ExpYear']) ? $data['ExpYear'] : null;
         $this->SecurityCode = !empty($data['SecurityCode']) ? $data['SecurityCode'] : null;
         $this->Pages = !empty($data['Pages']) ? $data['Pages'] : null;
+        return $this;
     }
 
     /**

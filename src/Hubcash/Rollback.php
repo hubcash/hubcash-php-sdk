@@ -36,6 +36,7 @@ class Rollback
 
     /**
      * @param array $data
+     * @return Rollback
      */
     public function ArrayToObject(Array $data)
     {
@@ -43,5 +44,6 @@ class Rollback
         $this->Reason = !empty($data['Reason']) ? $data['Reason'] : null;
         $this->Obs = !empty($data['Obs']) ? $data['Obs'] : null;
         $this->Date = !empty($data['Date']) ? $data['Date'] : null;
+        return $this;
     }
 }

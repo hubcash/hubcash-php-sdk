@@ -43,6 +43,7 @@ class Item
 
     /**
      * @param array $data
+     * @return Item
      */
     public function ArrayToObject(Array $data)
     {
@@ -51,5 +52,6 @@ class Item
         $this->Description = !empty($data['Description']) ? $data['Description'] : null;
         $this->Amount = !empty($data['Amount']) ? $data['Amount'] : null;
         $this->Qty = !empty($data['Qty']) ? $data['Qty'] : null;
+        return $this;
     }
 }

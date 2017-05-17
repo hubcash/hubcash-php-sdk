@@ -31,11 +31,13 @@ class History
 
     /**
      * @param array $data
+     * @return History
      */
     public function ArrayToObject(Array $data)
     {
         $this->HistoryId = !empty($data['HistoryId']) ? $data['HistoryId'] : null;
         $this->Action = !empty($data['Action']) ? $data['Action'] : null;
         $this->DateAdded = !empty($data['DateAdded']) ? $data['DateAdded'] : null;
+        return $this;
     }
 }

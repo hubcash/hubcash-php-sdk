@@ -46,7 +46,7 @@ class Currency extends Hubcash
 
     /**
      * Retrieve currencies list
-     * @return array
+     * @return Currency[]
      */
     public function getCurrencies()
     {
@@ -68,6 +68,7 @@ class Currency extends Hubcash
 
     /**
      * @param array $data
+     * @return Currency
      */
     protected function ArrayToObject(Array $data)
     {
@@ -76,6 +77,7 @@ class Currency extends Hubcash
         $this->SymbolLeft = !empty($data['SymbolLeft']) ? $data['SymbolLeft'] : null;
         $this->SymbolRight = !empty($data['SymbolRight']) ? $data['SymbolRight'] : null;
         $this->DecimalPlace = !empty($data['DecimalPlace']) ? $data['DecimalPlace'] : null;
+        return $this;
     }
 
 }

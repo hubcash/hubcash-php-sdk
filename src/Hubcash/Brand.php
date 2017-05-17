@@ -69,6 +69,7 @@ class Brand extends Hubcash
     /**
      * Retrieve a single brand from a card initial number
      * @param $number
+     * @return Brand
      */
     public function getBrandByNumber($number)
     {
@@ -78,6 +79,7 @@ class Brand extends Hubcash
 
     /**
      * @param array $data
+     * @return Brand
      */
     protected function ArrayToObject(Array $data)
     {
@@ -86,6 +88,7 @@ class Brand extends Hubcash
         $this->Image = !empty($data['Image']) ? $data['Image'] : null;
         $this->NumberDigits = !empty($data['NumberDigits']) ? $data['NumberDigits'] : null;
         $this->NumberSecurity = !empty($data['NumberSecurity']) ? $data['NumberSecurity'] : null;
+        return $this;
     }
 
 }

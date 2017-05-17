@@ -50,6 +50,7 @@ class Billet
 
     /**
      * @param array $data
+     * @return Billet
      */
     public function ArrayToObject(Array $data)
     {
@@ -59,5 +60,6 @@ class Billet
         $this->ExpiresIn = !empty($data['ExpiresIn']) ? $data['ExpiresIn'] : null;
         $this->Digitable = !empty($data['Digitable']) ? $data['Digitable'] : null;
         $this->Image = !empty($data['Image']) ? $data['Image'] : null;
+        return $this;
     }
 }

@@ -188,7 +188,7 @@ class Sale extends Hubcash
      * @param null $method
      * @param null $capture
      * @param null $status
-     * @return array
+     * @return Sale[]
      */
     public function getSales($page = null, $ref = null, $currency = null, $method = null, $capture = null, $status = null)
     {
@@ -224,6 +224,7 @@ class Sale extends Hubcash
     /**
      * Get details of a Sale by identifier
      * @param $id
+     * @return Sale
      */
     public function getSale($id)
     {
@@ -235,6 +236,7 @@ class Sale extends Hubcash
     /**
      * Capture a Sale by identifier
      * @param null $id
+     * @return Sale
      * @throws \Exception
      */
     public function capture($id = null)
@@ -259,6 +261,7 @@ class Sale extends Hubcash
 
     /**
      * @param null $id
+     * @return Sale
      * @throws \Exception
      */
     public function cancel($id = null)
@@ -282,6 +285,7 @@ class Sale extends Hubcash
 
     /**
      * @param array $data
+     * @return Sale
      */
     protected function ArrayToObject(Array $data)
     {
@@ -381,6 +385,8 @@ class Sale extends Hubcash
         } else {
             unset($this->Billet);
         }
+
+        return $this;
     }
 
 }
